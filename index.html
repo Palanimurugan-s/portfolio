@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palani Murugan S - Principal QA Associate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8fcff 0%, #e3f2fd 100%);
+            min-height: 100vh;
+            font-size: clamp(14px, 1.5vw, 16px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(10px, 2vw, 20px);
+        }
+
+        header {
+            background: linear-gradient(135deg, #bbdefb 0%, #e3f2fd 100%);
+            color: #1565c0;
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 2vw, 20px);
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(21, 101, 192, 0.15);
+            margin-bottom: clamp(15px, 3vw, 30px);
+            border-radius: clamp(10px, 2vw, 15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: clamp(5px, 1vw, 10px);
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+            word-break: break-word;
+        }
+
+        .designation {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            opacity: 0.8;
+            font-weight: 300;
+            margin-bottom: clamp(10px, 2vw, 20px);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: clamp(10px, 2vw, 30px);
+            flex-wrap: wrap;
+            margin-top: clamp(10px, 2vw, 20px);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.6);
+            padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 20px);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.8);
+            min-width: 0;
+            flex-shrink: 1;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.8);
+        }
+
+        .contact-link {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            word-break: break-all;
+        }
+
+        .contact-link:hover {
+            color: #1565c0;
+        }
+
+        .section {
+            background: white;
+            margin: clamp(10px, 2vw, 20px) 0;
+            padding: clamp(15px, 3vw, 30px);
+            border-radius: clamp(10px, 2vw, 15px);
+            box-shadow: 0 8px 32px rgba(21, 101, 192, 0.08);
+            border: 1px solid rgba(21, 101, 192, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(21, 101, 192, 0.12);
+        }
+
+        .section-title {
+            color: #1565c0;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            margin-bottom: clamp(10px, 2vw, 20px);
+            border-bottom: 3px solid #90caf9;
+            padding-bottom: clamp(5px, 1vw, 10px);
+            position: relative;
+            word-break: break-word;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: clamp(30px, 8vw, 50px);
+            height: 3px;
+            background: #1565c0;
+        }
+
+        .summary {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: #555;
+            background: linear-gradient(135deg, #f8fcff 0%, #e3f2fd 100%);
+            padding: clamp(15px, 3vw, 25px);
+            border-radius: 10px;
+            border-left: 5px solid #64b5f6;
+            margin-bottom: clamp(10px, 2vw, 20px);
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: clamp(10px, 2vw, 20px);
+            margin-top: clamp(10px, 2vw, 20px);
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #fafcff 0%, #f0f8ff 100%);
+            padding: clamp(15px, 2.5vw, 20px);
+            border-radius: 10px;
+            border-left: 4px solid #64b5f6;
+        }
+
+        .skill-category h4 {
+            color: #1565c0;
+            margin-bottom: clamp(8px, 1.5vw, 10px);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(6px, 1vw, 8px);
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #64b5f6 0%, #90caf9 100%);
+            color: white;
+            padding: clamp(6px, 1vw, 8px) clamp(10px, 2vw, 15px);
+            border-radius: 20px;
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+            font-weight: 500;
+            transition: transform 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, #fafcff 0%, #f8fcff 100%);
+            padding: clamp(15px, 3vw, 25px);
+            margin: clamp(10px, 2vw, 20px) 0;
+            border-radius: 10px;
+            border-left: 5px solid #81c784;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+        }
+
+        .company {
+            color: #1565c0;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: bold;
+            margin-bottom: 5px;
+            word-break: break-word;
+        }
+
+        .role {
+            color: #666;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            margin-bottom: 5px;
+            word-break: break-word;
+        }
+
+        .duration {
+            color: #888;
+            font-style: italic;
+            margin-bottom: clamp(10px, 2vw, 15px);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .project {
+            background: white;
+            padding: clamp(15px, 2.5vw, 20px);
+            margin: clamp(10px, 2vw, 15px) 0;
+            border-radius: 8px;
+            border: 1px solid #e3f2fd;
+            box-shadow: 0 2px 8px rgba(21, 101, 192, 0.05);
+        }
+
+        .project-title {
+            color: #1565c0;
+            font-size: clamp(1rem, 2.8vw, 1.2rem);
+            font-weight: bold;
+            margin-bottom: clamp(8px, 1.5vw, 10px);
+            word-break: break-word;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: clamp(8px, 1.5vw, 10px);
+            margin-bottom: clamp(10px, 2vw, 15px);
+        }
+
+        .project-detail {
+            background: #f8fcff;
+            padding: clamp(6px, 1vw, 8px) clamp(8px, 1.5vw, 12px);
+            border-radius: 5px;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            word-break: break-word;
+        }
+
+        .project-detail strong {
+            color: #1565c0;
+        }
+
+        .responsibilities {
+            margin-top: clamp(10px, 2vw, 15px);
+        }
+
+        .responsibilities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding: clamp(6px, 1vw, 8px) 0;
+            border-bottom: 1px solid #f0f8ff;
+            position: relative;
+            padding-left: clamp(15px, 2.5vw, 20px);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.6;
+        }
+
+        .responsibilities li::before {
+            content: '▶';
+            color: #64b5f6;
+            position: absolute;
+            left: 0;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #f8fcff 0%, #e8f5e8 100%);
+            padding: clamp(15px, 2.5vw, 20px);
+            margin: clamp(10px, 2vw, 15px) 0;
+            border-radius: 10px;
+            border-left: 5px solid #81c784;
+        }
+
+        .degree {
+            color: #1565c0;
+            font-size: clamp(1rem, 2.8vw, 1.2rem);
+            font-weight: bold;
+            word-break: break-word;
+        }
+
+        .institution {
+            color: #666;
+            margin-top: 5px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            word-break: break-word;
+        }
+
+        .awards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(10px, 2vw, 15px);
+        }
+
+        .award {
+            background: linear-gradient(135deg, #fafcff 0%, #f0f8ff 100%);
+            padding: clamp(15px, 2.5vw, 20px);
+            border-radius: 10px;
+            border-left: 5px solid #90caf9;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .award:hover {
+            transform: scale(1.02);
+        }
+
+        .award-icon {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: clamp(8px, 1.5vw, 10px);
+        }
+
+        .award strong {
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .award p {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 480px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .contact-item {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .section:hover {
+                transform: none;
+            }
+            
+            .experience-item:hover {
+                transform: none;
+            }
+            
+            .award:hover {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .awards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .awards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section:hover {
+                transform: translateY(-5px);
+            }
+            
+            .experience-item:hover {
+                transform: translateX(10px);
+            }
+            
+            .award:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                font-size: 12px;
+            }
+            
+            .section {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+            
+            .scroll-animation {
+                opacity: 1;
+                transform: none;
+            }
+            
+            header::before {
+                display: none;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .section {
+                border: 2px solid black;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .scroll-animation {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Palani Murugan S</h1>
+                <div class="designation">Principal QA Associate</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <a href="mailto:Murugan.ban10@gmail.com" class="contact-link">
+                            <span>📧</span>
+                            <span>Murugan.ban10@gmail.com</span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="tel:+919739703886" class="contact-link">
+                            <span>📱</span>
+                            <span>+91-9739703886</span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Bangalore, India</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="section scroll-animation">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary">
+                A self-motivated Principal QA Associate with 9+ years of extensive industry experience. Specialist in performance testing and engineering with proven expertise in cloud platforms, automation, and enterprise applications. Currently working as Senior Performance Test Engineer with JLL and previously served as Test consultant at Deloitte. Expert in identifying non-functional requirements, estimating efforts, planning, design, execution, and comprehensive reporting across diverse domains including Banking, Telecom, E-commerce, ERP, Cards, and Payments.
+            </div>
+        </section>
+
+        <section class="section scroll-animation">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Performance Testing Tools</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LoadRunner</span>
+                        <span class="skill-tag">JMeter</span>
+                        <span class="skill-tag">BlazeMeter</span>
+                        <span class="skill-tag">Cloudload</span>
+                        <span class="skill-tag">Stormrunner</span>
+                        <span class="skill-tag">StresStimulus</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Cloud Platforms</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">Oracle Cloud (OCI)</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Monitoring & APM Tools</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Perfmon</span>
+                        <span class="skill-tag">SiteScope</span>
+                        <span class="skill-tag">AWS CloudWatch</span>
+                        <span class="skill-tag">Azure Monitors</span>
+                        <span class="skill-tag">Dynatrace</span>
+                        <span class="skill-tag">AppDynamics</span>
+                        <span class="skill-tag">Mongo Ops Manager</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Programming & Protocols</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">HTTP</span>
+                        <span class="skill-tag">SOAP</span>
+                        <span class="skill-tag">SAP Protocol</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>DevOps & Management</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">Splunk</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Fiddler</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section scroll-animation">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="company">JLL/T</div>
+                <div class="role">Lead Performance Test Consultant</div>
+                <div class="duration">July 2021 - Present</div>
+                <p>Leading performance testing initiatives for enterprise applications with focus on cloud migration and scalability optimization.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="company">Marlabs</div>
+                <div class="role">Senior Software Engineer</div>
+                <div class="duration">April 2021 - July 2021</div>
+                <p>Contributed to performance engineering projects with emphasis on automation and continuous testing integration.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="company">Deloitte</div>
+                <div class="role">Deputy Manager</div>
+                <div class="duration">May 2019 - April 2021</div>
+                <p>Managed performance testing projects and provided consultation on non-functional requirements and capacity planning.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="company">Attra</div>
+                <div class="role">Senior Test Engineer</div>
+                <div class="duration">Oct 2018 - May 2019</div>
+                <p>Executed comprehensive performance testing strategies for web and mobile applications.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="company">Dell</div>
+                <div class="role">Performance Test Engineer</div>
+                <div class="duration">Aug 2015 - Sep 2018</div>
+                <p>Started career in performance testing, developed expertise in LoadRunner and established foundation in enterprise testing.</p>
+            </div>
+        </section>
+
+        <section class="section scroll-animation">
+            <h2 class="section-title">Key Projects</h2>
+            
+            <div class="project">
+                <div class="project-title">DigitalDox3.0 - Tax Analytics Platform</div>
+                <div class="project-details">
+                    <div class="project-detail"><strong>Client:</strong> Deloitte USI</div>
+                    <div class="project-detail"><strong>Domain:</strong> Tax Analytics</div>
+                    <div class="project-detail"><strong>Tools:</strong> Vugen, Storm-runner, Azure Monitor</div>
+                    <div class="project-detail"><strong>Platform:</strong> Azure AKS Microservices</div>
+                </div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Developed comprehensive NFR analysis for cloud and on-premise infrastructure</li>
+                        <li>Created and executed multi-geo location load testing strategies</li>
+                        <li>Optimized Kubernetes clusters with CPU/Memory limit ranges and probe configurations</li>
+                        <li>Monitored microservices performance using Azure Monitor and MongoDB Ops Manager</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">OCI Migration - PeopleSoft & JD Edwards</div>
+                <div class="project-details">
+                    <div class="project-detail"><strong>Client:</strong> JLL ERP Systems</div>
+                    <div class="project-detail"><strong>Domain:</strong> ERP</div>
+                    <div class="project-detail"><strong>Tools:</strong> JMeter, BlazeMeter, AppDynamics</div>
+                    <div class="project-detail"><strong>Migration:</strong> On-Premise to Oracle Cloud</div>
+                </div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Led ERP migration performance validation from on-premise to Oracle Cloud Infrastructure</li>
+                        <li>Executed multi-tier load testing (1X, 2X, 3X) using cloud platforms</li>
+                        <li>Identified and resolved SQL performance bottlenecks using AWR reports</li>
+                        <li>Conducted multi-region load testing for global deployment validation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">EE Telecom Platform</div>
+                <div class="project-details">
+                    <div class="project-detail"><strong>Client:</strong> Everything Everywhere (BT Telecom)</div>
+                    <div class="project-detail"><strong>Domain:</strong> Telecom</div>
+                    <div class="project-detail"><strong>Tools:</strong> JMeter, Cloud Load, AWS CloudWatch</div>
+                    <div class="project-detail"><strong>Scale:</strong> 30M+ Customers</div>
+                </div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Defined SLAs for critical business flows serving 30 million customers</li>
+                        <li>Implemented comprehensive monitoring using AWS CloudWatch and Dynatrace</li>
+                        <li>Executed multi-region load testing across European infrastructure</li>
+                        <li>Managed test data for complex order management workflows</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section scroll-animation">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="degree">Master of Computer Applications (MCA)</div>
+                <div class="institution">Annamalai University</div>
+            </div>
+            <div class="education-item">
+                <div class="degree">Bachelor of Computer Applications (BCA)</div>
+                <div class="institution">SJR College, Bangalore University</div>
+            </div>
+            <div class="education-item">
+                <div class="degree">PUC [Computer Science]</div>
+                <div class="institution">KNE College, Bangalore State Board</div>
+            </div>
+        </section>
+
+        <section class="section scroll-animation">
+            <h2 class="section-title">Awards & Achievements</h2>
+            <div class="awards">
+                <div class="award">
+                    <div class="award-icon">⭐</div>
+                    <strong>JLLT Shining Star Award</strong>
+                    <p>Best Team Player Recognition</p>
+                </div>
+                <div class="award">
+                    <div class="award-icon">🎓</div>
+                    <strong>Training Excellence</strong>
+                    <p>Outstanding rating for Non-Functional Testing training delivery</p>
+                </div>
+                <div class="award">
+                    <div class="award-icon">🏆</div>
+                    <strong>ON SPOT AWARDS</strong>
+                    <p>Multiple recognitions at Dell for exceptional performance</p>
+                </div>
+                <div class="award">
+                    <div class="award-icon">📜</div>
+                    <strong>New Relic Certification</strong>
+                    <p>Professional certification in application monitoring</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section scroll-animation">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="summary">
+                <strong>Performance Testing Excellence:</strong> Expertise in end-to-end performance testing lifecycle including requirement analysis, test planning, script development, execution, and detailed reporting across multiple domains and technologies.
+                <br><br>
+                <strong>Cloud & DevOps Integration:</strong> Proven experience in cloud platform testing (AWS, Azure, OCI), container orchestration (Docker, Kubernetes), and CI/CD pipeline integration for continuous performance validation.
+                <br><br>
+                <strong>Leadership & Collaboration:</strong> Strong stakeholder management skills with experience in client communication, team leadership, and cross-functional collaboration to deliver successful project outcomes.
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animation').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects to contact items (only on non-touch devices)
+        if (!('ontouchstart' in window)) {
+            document.querySelectorAll('.contact-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        }
+
+        // Dynamic background animation
+        function createFloatingElement() {
+            const element = document.createElement('div');
+            element.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(21, 101, 192, 0.2);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: -1;
+                left: ${Math.random() * 100}vw;
+                animation: float ${5 + Math.random() * 10}s linear infinite;
+            `;
+            
+            document.body.appendChild(element);
+            
+            setTimeout(() => {
+                element.remove();
+            }, 15000);
+        }
+
+        // Add CSS animation for floating elements
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Create floating elements periodically (only on larger screens)
+        if (window.innerWidth > 768) {
+            setInterval(createFloatingElement, 2000);
+        }
+
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
+
+        // Optimize scroll performance
+        let ticking = false;
+        function updateScrollElements() {
+            // Add any scroll-based optimizations here
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollElements);
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+</html>
